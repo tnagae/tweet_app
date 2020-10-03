@@ -1,0 +1,20 @@
+
+<div class="main posts-index">
+  <div class="container">
+    <div class="tweet" style="display:inline-flex">
+      <form action="/tweet_output" method="post">
+       <input type="text" name="tweet" placeholder="ツイート">
+       <input type="submit" value="投稿">
+      </form>
+    </div>
+
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <%= post.content %>
+      </div>
+      <form action="/delete_output?deleteContent=<%= post.content %>"  method="post" >
+        <input type="submit" value="削除">
+      </form>
+    <% end %>
+  </div>
+</div>
